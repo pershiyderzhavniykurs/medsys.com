@@ -1,0 +1,1110 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #050510; /* Темніший фон */
+    color: #e0e0e0; /* Світліший текст для контрасту */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden; /* Запобігаємо горизонтальній прокрутці */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Global Buttons */
+  .button {
+    display: inline-block;
+    padding: 12px 28px;
+    /* border-radius: 0; */ /* Забираємо округлення */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
+    text-align: center;
+    font-size: 15px; /* Зменшуємо розмір тексту */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+ 
+
+  .button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.4s ease;
+    z-index: -1;
+  }
+  
+  .button:hover::before {
+    left: 100%;
+  }
+  
+  .primary-button {
+    background: linear-gradient(135deg, #4278EF, #1a3fb5); /* Градієнт для кнопки */
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 10px rgba(66, 120, 239, 0.4); /* М'яке світіння */
+  }
+  
+  .primary-button:hover {
+    background: linear-gradient(135deg, #1a3fb5, #4278EF);
+    box-shadow: 0 0 15px rgba(66, 120, 239, 0.6);
+    transform: translateY(-3px);
+  }
+  
+  .secondary-button {
+    background-color: transparent;
+    color: #6a9eff; /* Яскравіший синій для тексту */
+    border: 1px solid #4278EF; /* Тонша межа без округлень */
+    box-shadow: 0 0 8px rgba(66, 120, 239, 0.2);
+  }
+  
+  .secondary-button:hover {
+    background-color: rgba(66, 120, 239, 0.1);
+    box-shadow: 0 0 12px rgba(66, 120, 239, 0.4);
+    transform: translateY(-3px);
+  }
+  
+  /* Header */
+  .main-header {
+    background-color: rgba(5, 5, 16, 0.9); /* Трохи прозоріший фон для глибини */
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Тонша межа */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .logo {
+    font-family:Arial, Helvetica, sans-serif;/* 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;*/
+    font-weight: 700;
+    font-size: 22px; /* Зменшуємо розмір */
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); /* Ефект світіння */
+    transition: text-shadow 0.3s ease;
+  }
+  
+  .logo:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .main-nav li {
+    margin-left: 25px; /* Менші відступи */
+  }
+  
+  .main-nav a {
+    color: #b0b0b0; /* Трохи темніший текст за замовчуванням */
+    text-decoration: none;
+    font-size: 14px; /* Зменшуємо розмір */
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    padding-bottom: 5px;
+    position: relative;
+  }
+  
+  .main-nav a::after { /* Ефект підкреслення-світіння */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4278EF, transparent);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  .main-nav a:hover,
+  .main-nav a.active {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  }
+  
+  .main-nav a:hover::after,
+  .main-nav a.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 26px; /* Зменшуємо розмір */
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .menu-toggle:hover {
+    color: #4278EF;
+    text-shadow: 0 0 10px rgba(66, 120, 239, 0.6);
+  }
+  
+  /* Mobile Menu Overlay */
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Більш темний, майже непрозорий фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  
+  .mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /*.mobile-nav-overlay .main-nav {
+    display: block;
+    text-align: center;
+  }*/
+  
+  .mobile-nav-overlay .main-nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .mobile-nav-overlay .main-nav li {
+    margin: 15px 0; /* Менші відступи */
+  }
+  
+  .mobile-nav-overlay .main-nav a {
+    font-size: 20px; /* Зменшуємо розмір */
+    color: #e0e0e0;
+    display: block;
+    padding: 10px;
+  }
+  
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 28px; /* Зменшуємо розмір */
+    cursor: pointer;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .close-menu:hover {
+    color: #ff4242; /* Червонуватий відтінок для закриття */
+    text-shadow: 0 0 10px rgba(255, 66, 66, 0.6);
+  }
+  
+  
+  /* HERO SECTION (Slide 1) */
+  .hero {
+    position: relative;
+    background-color: #050510;
+     /*background-image: url ('img.')'; /* Переконайтесь, що цей файл існує */
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 70px);
+    display: flex;
+    align-items: center; /* Вирівнюємо по центру по вертикалі */
+    justify-content: flex-start; /* <<< ЗМІНА: Вирівнюємо контент по лівому краю */
+    padding: 0 5%; /* Зберігаємо відступи */
+    text-align: left; /* <<< ЗМІНА: Вирівнюємо текст по лівому краю */
+    overflow: hidden; /* Запобігаємо виходу фонових ефектів за межі */
+    /* Стиль по умолчанию */
+  }
+
+  
+  /* Ефект затемнення по краях та світіння по центру */
+  .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Змінюємо градієнт для затемнення по правому краю, зберігаючи світло зліва */
+      background: radial-gradient(circle at center, rgba(10, 10, 30, 0) 0%, rgba(5, 5, 16, 0.8) 70%, rgba(0, 0, 0, 1) 100%);
+      /* Можна також використовувати linear-gradient, якщо потрібно чіткіше затемнення збоку */
+      /* background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.8) 100%); */
+      z-index: 2; /* Над фоновим зображенням, але під контентом */
+  }
+  
+  /* М'який градієнт, що йде з лівого верхнього кута (запозичуємо з референсу) */
+  .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 10% 10%, rgba(66, 120, 239, 0.3) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 90%, rgba(26, 63, 181, 0.2) 0%, transparent 40%);
+      animation: backgroundGlow 20s infinite alternate; /* Анімація м'якого руху */
+      z-index: 1; /* Під контентом */
+      pointer-events: none; /* Не заважає клікам */
+  }
+  
+  @keyframes backgroundGlow {
+    0% { transform: translate(0, 0); opacity: 0.8; }
+    50% { transform: translate(-5%, 5%); opacity: 1; }
+    100% { transform: translate(0, 0); opacity: 0.8; }
+  }
+  
+  
+  .content {
+    max-width: 700px; /* Обмежимо ширину контенту */
+    z-index: 10;
+    padding: 20px; /* Внутрішній відступ для контенту */
+    background: rgba(0, 0, 0, 0.3); /* Легка напівпрозора підкладка для тексту */
+    backdrop-filter: blur(5px);  /* Можна додати легкий блюр, якщо потрібно */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Затемнення навколо блоку */
+    position: relative; /* Для ефекту затемнення по краях блоку */
+    margin-right: auto; /* Щоб блок прилипав до лівого краю, якщо hero wider than content */
+  }
+  
+  .content::before { /* Затемнення по краях контентного блоку */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.8); /* Внутрішня тінь */
+    pointer-events: none;
+  }
+  
+  
+  h1 {
+    font-family:Arial, Helvetica, sans-serif, cursive;
+    font-weight: 700;
+    font-size: 40px; /* Зменшуємо розмір */
+    line-height: 1.2;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), /* Більше світіння */
+                 0 0 20px rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  .subtext {
+    font-size: 18px; /* Зменшуємо розмір */
+    color: #b0b0c0; /* Темніший, але світиться */
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(176, 176, 192, 0.2);
+  }
+  
+  .authors {
+    font-size: 13px; /* Зменшуємо розмір */
+    color: #808090; /* Темніший, менш помітний */
+    margin-bottom: 30px;
+  }
+  /* General Section Styling */
+.section {
+    padding: 80px 20px;
+    background: #050510;
+    text-align: left; /* <<< ЗМІНА: Основний текст секцій по лівому краю */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative; /* Для затемнення */
+    overflow: hidden;
+  }
+  
+  .section::before { /* Затемнення по краях для всіх секцій */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(25, 25, 73, 0) 0%, rgba(27, 27, 72, 0.8) 1000%, rgba(0, 0, 0, 1) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  
+  .light-bg {
+    background-color: #0A0A20; /* Трохи світліший темний */
+  }
+  
+  .section h2 {
+    font-size: 32px; /* Зменшуємо розмір */
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    margin-bottom: 35px;
+    text-align: center; /* Заголовки секцій залишаємо по центру для візуального акценту */
+    position: relative;
+    padding-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  
+  .section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 70px; /* Менша ширина */
+    height: 2px; /* Тонша лінія */
+    background: linear-gradient(90deg, transparent, #4278EF, transparent);
+    border-radius: 0; /* Без округлень */
+  }
+  
+  .description {
+    font-size: 16px; /* Зменшуємо розмір */
+    line-height: 1.8;
+    color: #c0c0c0;
+    margin-bottom: 25px;
+    text-align: left; /* <<< ЗМІНА: Опис по лівому краю */
+    max-width: 800px;
+    /* margin-left: auto; */ /* Видаляємо це, щоб не центтувати */
+    margin-right: auto; /* Щоб блок опису прилипав до лівого краю, якщо контейнер ширший */
+    text-shadow: 0 0 3px rgba(192, 192, 192, 0.1);
+  }
+  
+  /* Important Points List */
+  .important-points {
+    font-size: 16px; /* Зменшуємо розмір */
+    color: #c0c8ff;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left; /* <<< ЗМІНА: Список по лівому краю */
+  }
+  
+  .important-points li {
+    margin-bottom: 12px; /* Менші відступи */
+    padding-left: 25px;
+    position: relative;
+    text-shadow: 0 0 3px rgba(192, 200, 255, 0.1);
+  }
+  
+  .important-points li::before {
+    content: '✔';
+    color: #6a9eff; /* Яскравіший маркер */
+    position: absolute;
+    left: 0;
+    font-size: 18px; /* Зменшуємо розмір */
+    top: 0;
+    text-shadow: 0 0 8px rgba(106, 158, 255, 0.5);
+  }
+  
+  .important-points strong {
+      color: #fff;
+  }
+  
+  /* Audience List */
+  .audience-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Зменшуємо min-width */
+    gap: 15px;
+    /* text-align: left;  Елементи grid автоматично вирівнюються по лівому краю */
+  }
+  
+  .audience-list li {
+    background-color: rgba(66, 120, 239, 0.05); /* Дуже легкий фон */
+    padding: 15px 20px;
+    /* border-radius: 0; */ /* Забираємо округлення */
+    font-size: 15px; /* Зменшуємо розмір */
+    color: #c0c8ff;
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #4278EF; /* Тонша лінія зліва */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .audience-list li:hover {
+    background-color: rgba(66, 120, 239, 0.1);
+    border-color: #6a9eff;
+  }
+  
+  .audience-list li::before {
+    content: '•';
+    color: #6a9eff; /* Яскравіший маркер */
+    font-size: 20px; /* Зменшуємо розмір */
+    margin-right: 8px;
+    text-shadow: 0 0 5px rgba(106, 158, 255, 0.3);
+  }
+  
+  /* Program Grid */
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Зменшуємо min-width */
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .program-item {
+    background-color: #0A0A20;
+    padding: 25px; /* Зменшуємо відступи */
+    /* border-radius: 0;  Забираємо округлення */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Затемнена тінь */
+    text-align: left; /* <<< ЗМІНА: Текст елементів програми по лівому краю */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 1px solid rgba(66, 120, 239, 0.2); /* Тонка лінія зверху */
+  }
+  
+  .program-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(66, 120, 239, 0.4); /* Більш виражене світіння при наведенні */
+}
+
+.program-item h3 {
+  color: #6a9eff;
+  font-size: 20px; /* Зменшуємо розмір */
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px rgba(106, 158, 255, 0.4);
+}
+
+.program-item p {
+  font-size: 15px; /* Зменшуємо розмір */
+  color: #c0c0c0;
+}
+
+/* Speakers Grid */
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Зменшуємо min-width */
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.speaker-card {
+  background-color: #0A0A20;
+  padding: 20px; /* Зменшуємо відступи */
+  /* border-radius: 0;  Забираємо округлення */
+  text-align: left; /* <<< ЗМІНА: Текст карток спікерів по лівому краю */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 1px solid rgba(66, 120, 239, 0.2);
+}
+
+.speaker-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(66, 120, 239, 0.4);
+}
+
+.speaker-card img {
+  width: 100px; /* Зменшуємо розмір */
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 2px solid #4278EF; /* Тонша межа */
+  box-shadow: 0 0 10px rgba(66, 120, 239, 0.5); /* Світіння навколо фото */
+  display: block; /* Щоб зображення було блочним і можна було його центрувати */
+  margin-left: 0; /* <<< ЗМІНА: Прибираємо автоматичний margin-left, якщо він був */
+  margin-right: auto; /* Центруємо фото, якщо потрібно, або залишаємо margin-left: 0; для лівого вирівнювання */
+}
+/* Можна залишити img центрування, або вирівняти по лівому краю. Залишив центрованим, бо це для візитної картки зазвичай краще.*/
+.speaker-card.text-left img { /* Якщо хочете фото зліва, додайте цей клас до .speaker-card */
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+.speaker-card h3 {
+  color: #fff;
+  font-size: 18px; /* Зменшуємо розмір */
+  margin-bottom: 8px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.speaker-card p {
+  font-size: 14px; /* Зменшуємо розмір */
+  color: #c0c0c0;
+}
+/* ... (існуючі стилі) ... */
+
+/* Видаліть або закоментуйте цей блок зі стилів: */
+/* Додайте ці стилі до style.css */
+
+/* Стилі для секції "Партнери" */
+#partners {
+  background-color: #050510;
+  font-family:Arial, Helvetica, sans-serif /* Темний фон, як у інших секцій */
+}
+
+/* Сітка для карток партнерів */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* Картка партнера */
+.partner-card {
+  background-color: #0A0A20; /* Фон картки, трохи світліший темний */
+  padding: 30px;
+  border-radius: 15px; /* Закруглені кути */
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(66, 120, 239, 0.2);
+}
+
+.partner-card:hover {
+  transform: translateY(-8px); /* Трохи піднімаємо картку */
+  box-shadow: 0 10px 30px rgba(66, 120, 239, 0.4); /* Сильніша тінь з синім відтінком */
+}
+
+.partner-card .partner-logo {
+  width: 120px; /* Розмір логотипу */
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px; /* Закруглені кути для логотипу */
+  box-shadow: 0 0 15px rgba(66, 120, 239, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.partner-card:hover .partner-logo {
+    transform: scale(1.05); /* Збільшуємо логотип при наведенні */
+}
+
+.partner-card h3 {
+  color: #fff; /* Білий колір для заголовка */
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.partner-card p {
+  font-size: 16px;
+  color: #c0c0c0; /* Світліший сірий для тексту */
+  line-height: 1.6;
+}
+
+/* ... (інші стилі) ... */
+
+.sponsorship-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.sponsor-logo {
+  max-width: 100px;
+  height: auto;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sponsor-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .sponsor-logos {
+    gap: 20px;
+  }
+  .sponsor-logo {
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-logos {
+    flex-direction: column;
+  }
+  .sponsor-logo {
+    margin-bottom: 15px;
+  }
+
+}
+/* Стиль по умолчанию */
+.text {
+  text-align: left; /* например, на ПК слева */
+}
+
+/* Для телефонов (до 768px ширины) */
+@media (max-width: 768px) {
+  .text {
+    text-align: center; /* по центру */
+  }
+}
+
+/* ... (кінець блоку, що треба видалити/закоментувати) ... */
+
+
+/* Додайте ці нові стилі для зображень у секції контактів (наприклад, після .description або перед .contact-info) */
+.contact-images {
+  display: flex; /* Розміщуємо елементи в ряд */
+  justify-content: center; /* Центруємо зображення по горизонталі */
+  gap: 40px; /* Відступ між зображеннями */
+  margin-bottom: 40px; /* Відступ від зображень до контактної інформації */
+  flex-wrap: wrap; /* Дозволяємо переноситися на новий рядок */
+}
+
+.contact-illustration {
+  max-width: 200px; /* Максимальна ширина кожного зображення */
+  height: auto; /* Зберігає пропорції */
+  border-radius: 5px; /* Легке округлення кутів */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /* Тінь для ефекту глибини */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-illustration:hover {
+  transform: translateY(-5px); /* Легкий підйом при наведенні */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* Більш виражена тінь */
+}
+
+/* Адаптивність для зображень у секції контактів */
+@media (max-width: 768px) {
+  .contact-images {
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+  .contact-illustration {
+    max-width: 150px; /* Зменшуємо розмір на планшетах */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-images {
+    flex-direction: column; /* На дуже маленьких екранах: один під одним */
+    gap: 20px;
+  }
+  .contact-illustration {
+    max-width: 80%; /* Займає 80% ширини контейнера */
+    margin-left: auto; /* Центруємо кожен елемент в стовпчику */
+    margin-right: auto;
+  }
+}
+
+/* ... (інші існуючі стилі) ... */
+
+ Sponsorship Options 
+.sponsorship-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* <<< ЗМІНА: Збільшуємо min-width для 2 колонок 
+  gap: 30px; /* Трохи більший відступ */
+  margin-bottom: 40px;
+  justify-content: center; /* <<< ЗМІНА: Центруємо пакети, якщо їх менше, ніж колонок */
+}
+
+.package-card{
+  background-color: #0A0A20;
+  padding: 25px; /* Зменшуємо відступи */
+  border-radius: 0; /* Забираємо округлення */
+  text-align: center;/* <<< ЗМІНА: Текст пакетів по лівому краю */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(66, 120, 239, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card::before { /* Зберігаємо світлу смугу, але робимо її прозорішою */
+    background: linear-gradient(90deg, transparent, rgba(66, 120, 239, 0.3), transparent);
+    transform: translateY(-100%) scaleX(0.8); /* Більш компактна анімація */
+    transition: transform 0.4s ease;
+}
+
+.package-card:hover::before {
+    transform: translateY(0) scaleX(1);
+}
+
+.package-card:hover {
+  border-color: #6a9eff;
+  box-shadow: 0 0 25px rgba(66, 120, 239, 0.4);
+}
+
+.package-card h3 {
+  color: #6a9eff;
+  font-size: 22px; /* Зменшуємо розмір */
+  margin-bottom: 18px;
+  text-shadow: 0 0 8px rgba(106, 158, 255, 0.4);
+}
+
+.package-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.package-card li {
+  margin-bottom: 8px; /* Менші відступи */
+  font-size: 15px; /* Зменшуємо розмір */
+  color: #c0c8ff;
+  position: relative;
+  padding-left: 20px;
+}
+
+.package-card li::before {
+  content: '•';
+  color: #6a9eff;
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+  text-shadow: 0 0 5px rgba(106, 158, 255, 0.3);
+}*/
+
+/* Contact Info & Form */
+.contact-info {
+  text-align: left; /* <<< ЗМІНА: Контактна інформація по лівому краю */
+  margin-bottom: 35px;
+}
+
+.contact-info p {
+  font-size: 16px; /* Зменшуємо розмір */
+  margin-bottom: 8px;
+  color: #c0c8ff;
+}
+
+.contact-info a {
+  color: #6a9eff;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+contact-info a:hover {
+    color: #9ac2ff;
+    text-shadow: 0 0 8px rgba(154, 194, 255, 0.4);
+  }
+  
+  .contact-info i {
+    margin-right: 8px;
+    color: #6a9eff;
+    font-size: 18px; /* Зменшуємо розмір */
+    text-shadow: 0 0 5px rgba(106, 158, 255, 0.3);
+  }
+  
+  .contact-form {
+    max-width: 550px; /* Зменшуємо ширину */
+    margin: 0 auto; /* Залишаємо форму по центру, бо це стандартно для форм */
+    background-color: #0A0A20;
+    padding: 30px;
+    /* border-radius: 0; */ /* Забираємо округлення */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Більш виражена тінь */
+    border: 1px solid rgba(66, 120, 239, 0.1);
+    text-align: left; /* <<< ЗМІНА: Текст у формі по лівому краю */
+  }
+  
+  .contact-form h3 {
+    text-align: center; /* Заголовок форми залишаємо по центру */
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 22px; /* Зменшуємо розмір */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px; /* Зменшуємо відступи */
+    margin-bottom: 15px;
+    border: 1px solid #202030; /* Темніша межа */
+    /* border-radius: 0; */ /* Забираємо округлення */
+    background-color: #101025; /* Темніший фон полів */
+    color: #fff;
+    font-size: 15px; /* Зменшуємо розмір */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-form input[type="text"]:focus,
+  .contact-form input[type="email"]:focus,
+  .contact-form textarea:focus {
+    border-color: #4278EF;
+    box-shadow: 0 0 10px rgba(66, 120, 239, 0.5);
+  }
+  
+  .contact-form input[type="text"]::placeholder,
+  .contact-form input[type="email"]::placeholder,
+  .contact-form textarea::placeholder {
+    color: #606070;
+  }
+  
+  .contact-form button {
+    width: 100%;
+    padding: 12px; /* Зменшуємо відступи */
+    font-size: 16px; /* Зменшуємо розмір */
+    cursor: pointer;
+  }
+  
+  /* Footer */
+  .main-footer {
+    background-color: #030308; /* Ще темніший футер */
+    color: #a0a0a0;
+    padding: 25px 0; /* Менші відступи */
+    text-align: center; /* <<< ЗМІНА: Футер залишаємо по центру */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .main-footer p {
+    margin-bottom: 12px; /* Менші відступи */
+    font-size: 14px; /* Зменшуємо розмір */
+  }
+  
+  .social-links a {
+    color: #c0c8ff;
+    font-size: 20px; /* Зменшуємо розмір */
+    margin: 0 8px; /* Менші відступи */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: #4278EF;
+    text-shadow: 0 0 10px rgba(66, 120, 239, 0.6);
+  }
+  
+  
+  /* ADAPTIVE / MEDIA QUERIES */
+  @media (max-width: 992px) {
+    .main-nav {
+      display: none;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+
+    /* Временно для отладки */
+#menuToggle {
+  border: 2px solid rgb(23, 24, 54) !important;
+}
+
+.mobile-nav-overlay {
+  border: 2px solid rgb(62, 62, 88) !important;
+}
+  
+    .hero {
+      height: 100vh;
+      justify-content: center; /* <<< ЗМІНА: На мобільних hero контент по центру */
+      text-align: center; /* <<< ЗМІНА: На мобільних hero текст по центру */
+    }
+  
+    .content {
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    .content::before {
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+    }
+  
+    h1 {
+      font-size: 32px;
+    }
+  
+    .subtext {
+      font-size: 16px;
+    }
+  
+    .section h2 {
+      font-size: 28px;
+      text-align: center; /* Залишаємо по центру на мобільних */
+    }
+  
+    .description {
+      font-size: 15px;
+      text-align: left; /* <<< ЗМІНА: Опис по лівому краю на мобільних */
+    }
+  
+    .important-points,
+    .audience-list,
+    .program-grid,
+    .speakers-grid,
+    .sponsorship-options {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .program-item, .speaker-card, .package-card {
+      padding: 18px;
+      text-align: left; /* <<< ЗМІНА: На мобільних теж по лівому краю */
+    }
+    
+    .speaker-card img {
+      margin-left: 0; /* <<< ЗМІНА: Фото спікерів на мобільних теж зліва */
+      margin-right: auto;
+    }
+  
+    .contact-info {
+      text-align: left; /* <<< ЗМІНА: На мобільних теж по лівому краю */
+    }
+  
+    .contact-form {
+      text-align: left; /* <<< ЗМІНА: На мобільних теж по лівому краю */
+    }
+    .contact-form h3 {
+      text-align: center; /* Заголовок форми залишаємо по центру */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .logo {
+      font-size: 20px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    .subtext {
+      font-size: 14px;
+    }
+  
+    .authors {
+      font-size: 12px;
+    }
+  
+    section {
+        padding: 50px 10px;
+      }
+    
+      .section h2 {
+        font-size: 24px;
+      }
+    
+      .description {
+        font-size: 14px;
+      }
+    
+      .button {
+        padding: 10px 20px;
+        font-size: 13px;
+      }
+    
+      .mobile-nav-overlay .main-nav a {
+        font-size: 18px;
+      }
+    
+      .contact-form {
+        padding: 20px;
+      }
+    
+      .contact-form h3 {
+        font-size: 20px;
+      }
+    }
+
+
+
+    /* Mobile Menu Overlay - ОБЯЗАТЕЛЬНЫЕ СТИЛИ */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(5, 5, 16, 0.98);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-overlay .main-nav {
+  display: block !important;
+  text-align: center;
+}
+
+.mobile-nav-overlay .main-nav ul {
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-overlay .main-nav li {
+  margin: 20px 0;
+  list-style: none;
+}
+
+.mobile-nav-overlay .main-nav a {
+  font-size: 24px;
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 15px 30px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-overlay .main-nav a:hover {
+  color: #4278EF !important;
+}
+
+.close-menu {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Показываем кнопку меню только на мобильных */
+@media (max-width: 992px) {
+  .menu-toggle {
+      display: block !important;
+      z-index: 1002;
+  }
+  
+  .main-nav:not(.mobile-nav-overlay .main-nav) {
+      display: none !important;
+  }
+}
+.mobile-nav-overlay .main-nav a {
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-overlay .main-nav a:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
