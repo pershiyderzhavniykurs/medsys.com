@@ -1,0 +1,284 @@
+/* --- БАЗОВІ НАЛАШТУВАННЯ ТА СКИДАННЯ СТИЛІВ --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #03030d; /* Глибокий благородний чорний з ледь помітним синім відтінком */
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.mc-main-container { display: flex; flex-direction: column; width: 100%; }
+.mc-page-section { width: 100%; padding: 60px 0 100px 0; display: flex; justify-content: center; }
+.mc-container { width: 100%; max-width: 1140px; padding: 0 20px; }
+
+/* --- МІНІМАЛІСТИЧНИЙ СТИЛЬ ЗАГОЛОВКА --- */
+.mc-hero-minimal {
+    text-align: center;
+    max-width: 750px;
+    margin: 20px auto 70px auto;
+}
+
+.mc-clean-tag {
+    color: #5294ff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.mc-minimal-title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.mc-title-line {
+    width: 40px;
+    height: 2px;
+    background-color: #3b82f6;
+    margin: 25px auto;
+}
+
+.mc-minimal-lead {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* СІТКА БЛОКІВ */
+.mc-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* КАРТКИ (ЧИСТИЙ МІНІМАЛІЗМ) */
+.mc-info-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 40px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mc-info-card:hover {
+    border-color: rgba(82, 148, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Сині відтінки для топ-ліній карток */
+.border-blue-light { border-top: 3px solid #6a9eff; }
+.border-blue-dark { border-top: 3px solid #2563eb; }
+.border-blue-inline { border-top: 3px solid rgba(255, 255, 255, 0.15); }
+
+.mc-card-title {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+}
+
+/* СТИЛІЗАЦІЯ СПИСКІВ (БІЛИЙ + СИНІЙ) */
+.mc-list { list-style: none; }
+.mc-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Яскраво-блакитний маркер */
+.tech-list li::before {
+    content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px;
+    background: #6a9eff; border-radius: 50%; box-shadow: 0 0 8px #6a9eff;
+}
+
+/* Темно-синій маркер */
+.tech-list-dark li::before {
+    content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px;
+    background: #2563eb; border-radius: 50%;
+}
+
+/* Галочки для переваг лікаря */
+.mc-check-list { list-style: none; }
+.mc-check-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 16px; font-size: 15px; color: rgba(255, 255, 255, 0.8); line-height: 1.4;
+}
+
+.icon-check {
+    color: #6a9eff;
+    font-weight: bold;
+}
+
+/* АКЦЕНТНИЙ БЛОК: Модель спостереження */
+.mc-highlight-box {
+    background: rgba(82, 148, 255, 0.03);
+    border: 1px solid rgba(82, 148, 255, 0.15);
+    border-radius: 16px;
+    padding: 35px;
+    margin: 40px 0;
+    position: relative;
+}
+
+.mc-highlight-box::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+    background: #3b82f6;
+}
+
+.mc-highlight-content h3 {
+    font-size: 20px; font-weight: 600; color: #ffffff; margin-bottom: 10px; letter-spacing: -0.3px;
+}
+
+.mc-highlight-content p {
+    margin: 0; font-size: 15px; color: rgba(255, 255, 255, 0.65); line-height: 1.6;
+}
+
+/* МІНІМАЛІСТИЧНА ЦИТАТА */
+.mc-quote-block {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.quote-text {
+    font-size: 22px; line-height: 1.6; color: rgba(255, 255, 255, 0.65); font-weight: 300;
+}
+
+.highlight-blue {
+    color: #ffffff;
+    font-weight: 500;
+    border-bottom: 1px dashed rgba(82, 148, 255, 0.4);
+    padding-bottom: 2px;
+}
+
+/* Картка "Для кого" */
+.target-box {
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.target-subtitle {
+    font-size: 12px; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); letter-spacing: 1px; margin-bottom: 10px; font-weight: 600;
+}
+
+.target-main-text {
+    font-size: 16px; line-height: 1.6; color: rgba(255, 255, 255, 0.85);
+}
+
+/* ЛІНІЯ-РОЗДІЛИТЕЛЬ ПЕРЕД ОФЕРТОЮ */
+.mc-section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+    margin: 70px 0;
+}
+
+/* --- СЕКЦІЯ ОФЕРТИ (ЧИСТИЙ СИНІЙ ТА БІЛИЙ) --- */
+.oferta-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.oferta-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(82, 148, 255, 0.2);
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.oferta-badge {
+    color: #6a9eff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.oferta-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.oferta-subtitle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Кнопка Google Диску */
+.mc-drive-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #2563eb; /* Чистий синій колір */
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.drive-icon {
+    width: 18px;
+    height: 18px;
+    color: #ffffff;
+}
+
+.mc-drive-btn:hover {
+    background: #3b82f6; /* Світліший синій при наведенні */
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Кнопка повернення назад */
+.mc-back-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.mc-btn-back {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.mc-btn-back:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.02);
+}
