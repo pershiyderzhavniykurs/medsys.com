@@ -21,6 +21,25 @@ function initMenu() {
       return;
   }
 
+  document.addEventListener('DOMContentLoaded', function () {
+        const mcToggleBtn = document.querySelector('.js-master-class-toggle');
+        const navList = document.querySelector('.js-nav-list');
+        const mcDropdown = document.querySelector('.js-dropdown-menu');
+
+        mcToggleBtn.addEventListener('click', function () {
+            // Переключаем классы: если меню открыто — скрываем его, и наоборот
+            navList.classList.toggle('is-hidden');
+            mcDropdown.classList.toggle('is-active');
+            
+            // Опционально: можно менять стиль самой кнопки при активации режима
+            if (mcDropdown.classList.contains('is-active')) {
+                mcToggleBtn.style.color = '#6a9eff'; // Становится голубой в активном состоянии
+            } else {
+                mcToggleBtn.style.color = '#ffffff'; // Возвращается к белому
+            }
+        });
+    });
+
   // Создаем overlay только если его нет
   let mobileNavOverlay = document.getElementById('mobileNavOverlay');
   if (!mobileNavOverlay) {
@@ -217,5 +236,6 @@ window.addEventListener('scroll', () => {
     if (currentMobileNavLink) {
         currentMobileNavLink.classList.add('active');
     }
+  
 });
 
