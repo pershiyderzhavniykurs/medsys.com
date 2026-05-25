@@ -20,17 +20,24 @@
         Превентивна медицина
       </a>
       <nav class="main-nav" id="mainNav">
-        <ul>
-          <li><a href="#about">Про курс</a></li>
-          <li><a href="#audience">Цільова аудиторія</a></li>
-          <li><a href="#program">Програма курсу</a></li>
-          <li><a href="#speakers">Засновники</a></li>
-          <li><a href="#partners">Головні партнери</a></li>
-          
-          
-          <li><a href="#contacts">Контакти</a></li>
-        </ul>
-      </nav>
+    <ul class="nav-list js-nav-list">
+        <li><a href="#about">Про курс</a></li>
+        <li><a href="#audience">Цільова аудиторія</a></li>
+        <li><a href="#program">Програма курсу</a></li>
+        <li><a href="#speakers">Засновники</a></li>
+        <li><a href="#partners">Головні партнери</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+    </ul>
+
+    <div class="master-class-nav-container">
+        <a href="main.html"><button type="button" class="nav-master-class-btn js-master-class-toggle">МАЙСТЕР-КЛАС</button></a>
+        
+        <div class="mc-dropdown-menu js-dropdown-menu">
+            <a href="#mc-info" class="mc-dropdown-link">Інформація</a>
+            <a href="#mc-oferta" class="mc-dropdown-link">Оферта</a>
+        </div>
+    </div>
+</nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Відкрити меню">
         <i class="fas fa-bars"></i>
       </button>
@@ -52,7 +59,7 @@
         <h2>Чому цей курс важливий?</h2>
         <ul class="important-points">
           <li>Ми навчаємо лікарів, як зберігати здоров’я, а не боротися з його втратою із застосуванням міждисциплінарного підходу: доказова медицина, нутріціологія, психологія та сучасні технології</li>
-          <li>Курс має державну сертифікацію та 50 залікових балів БПР</li>
+          <li>Курс має державну сертифікацію та 54,5 залікових балів БПР: Теорія - 20 балів, МК - 34,5 бала</li>
           <li>Найуспішніші учасники курсу мають можливість працевлаштування в найкращих клініках із превентивної медицини в Україні</li>
           <li>Превенція — ключ до довголіття, життєвої енергії  та стійкої системи охорони здоров’я</li>
         </ul>
@@ -70,7 +77,7 @@
           <li>Спеціалістів з вищою медичною освітою за більше ніж 25 лікарськими спеціальностями, в тому числі для лікарів акушер-гінекологів, лікарів-дерматовенерологів, лікарів з фізичної реабілітації</li>
           <li>Лікарів, що проваджують медичну діяльність в приватних кабінетах, клініках та / або є власниками клінік, що хочуть розвивати та розширювати бізнес та власні компетенції</li>
           <li>Учасники - мотивовані професіонали, що налаштовані до змін і відкриті для нових ідей, прагнучи покращувати свої навички та бути конкурентоспроможними в сучасному світі.</li>
-          <li>Група розрахованa на 50 учасників. У разі отримання організаторами більшої кількості заявок - відбувається відбір</li>
+          <li>Група розрахованa на 15 учасників. У разі отримання організаторами більшої кількості заявок - відбувається відбір</li>
         
         </ul>
         <a href="#program" class="button secondary-button">Програма курсу</a>
@@ -83,36 +90,50 @@
         <div class="program-grid">
           <div class="program-item">
             <h3>Історичні та медико-соціальні аспекти у превенції хронічних неінфекційних захворювань. </h3>
-            <b>1 день</b>
+            <b>Теорія</b>
           </div>
           <div class="program-item">
             <h3>Сучасні підходи, технологічні рішення та перспективні напрямки розвитку превентивної медицини.</h3>
-            <b>2 день</b>
+            <b>Теорія</b>
           </div>
           <div class="program-item">
-            <h3>Дисфункція ендокринної системи як фактор ризику хронічних неінфекційних захворювань. Сучасні методи попередження, діагностика і корекція. Розбір кейсів.</h3>
-            <b>3-4 день</b>
+            <h3>Дисфункція ендокринної системи як фактор ризику хронічних неінфекційних захворювань. Сучасні методи попередження, діагностика і корекція.</h3>
+            <b>Теорія</b>
           </div>
 <div class="program-item">
-    <h3>Презентація новітнього обладнання з можливістю тестування.</h3>
-    <b>5 день</b>
+    <h3>Профілактика  серцево-судинних захворювань,  додаткові ризики, їх діагностика і корекція.</h3>
+    <b>Теорія</b>
   </div>
   <div class="program-item">
-    <h3>Метаболічний синдром і метаболічно - асоційована стеатотична хвороба печінки, можливості нефармакологічної корекції. Розбір кейсів.</h3>
-    <b>6 день</b>
-  </div>
+    <h3>Метаболічний синдром і метаболічно - асоційована стеатотична хвороба печінки, можливості нефармакологічної корекції.</h3>
+    <b>Теорія</b>
+  </div> 
   <div class="program-item">
-    <h3>Підтримка ментального здоров’я та превенція його порушень. Розбір кейсів.</h3>
-    <b>7 день</b>
+    <h3>Підтримка ментального здоров’я та превенція його порушень.</h3>
+    <p class="program-type">Теорія</p>
+</div>
+
+  <div class="master-class-wrapper">
+    <h3 class="master-class-main-title">Майстер-клас</h3>
+    
+      <div class="master-class-grid">
+          <div class="program-item master-class-item">
+            <div class="mc-badge">МК</div>
+            <h3>Практична модель спостереження.Розбір кейсів.</h3>
+      </div>
+        
+      <div class="program-item master-class-item">
+            <div class="mc-badge">МК</div>
+            <h3>Презентація новітнього обладнання з можливістю тестування.</h3>
+      </div>
+  
+      <div class="mc-buttons">
+            <a href="tel:+380991055047" class=" btn btn-primary">Доєднатись
+            <a href="main.html" class=" btn btn-secondary">Детальна інформація
+      </div>
   </div>
-  <div class="program-item">
-    <h3>Профілактика  серцево-судинних захворювань,  додаткові ризики, їх діагностика і корекція. Розбір кейсів.</h3>
-    <b>8 день</b>
-  </div>
-  <div class="program-item">
-    <h3>Практичні навички. Розбір кейсів.</h3>
-    <b>9-10 день</b>
-  </div>
+
+
 </div>
 <a href="#speakers" class="button secondary-button">Засновники</a>
 </div>
@@ -165,15 +186,15 @@
     </div>
     
     <div class="partner-card">
-      <a href="`https://www.instagram.com/tiva_pharm?igsh=MTM5NGk0cHNqNmpzOA==">  
-      <img src="img/images.png" alt="Логотип партнера 2" class="partner-logo"></a>
-      <h3>Tiva Pharm </h3>
+      <a href="https://digitalbeauty.com.ua/">  
+      <img src="img/IMG_5664.JPG" alt="Логотип партнера 2" class="partner-logo"></a>
+      <h3>Digital Beauty</h3>
       
     </div>
     <div class="partner-card">
-      <a href="https://www.biopell.com.ua/">
-      <img src="img/1747209079_I7ceoP.webp" alt="Логотип партнера 2" class="partner-logo"></a>
-      <h3>Biopell Medical </h3>
+      <a href="https://shareoriginal.com.ua/?srsltid=AfmBOopEkxb_i2Soqpsr1qrMQLI-UfSg3SYIPc8Brv4czUHIWmjm-0Tb">
+      <img src="img/IMG_5672.WEBP" alt="Логотип партнера 2" class="partner-logo"></a>
+      <h3>Share</h3>
       
     </div>
   </div>
@@ -186,12 +207,6 @@
 
 <section class="section" id="contacts">
 </section>
-
-
-
-
-
-
 </section>
 
 <section class="section light-bg" id="contacts">
@@ -201,8 +216,8 @@
   Якщо у вас виникли запитання щодо курсу, реєстрації або можливостей співпраці, будь ласка, зв'яжіться з нами.
 </p>
 <div class="contact-images">
-  <a href="https://gam-academy.com/en/">
-  <img src="img/photo_5449710150664452208_y.jpg" alt="Зображення про контакт 1" class="contact-illustration"></a>
+  <a href="https://www.age-management.com.ua/am-scientific-core/">
+  <img src="img/IMG_5670.PNG" alt="Зображення про контакт 1" class="contact-illustration"></a>
   <a href="https://www.medsys.com.ua"><img src="img/photo_5449636388896109391_x.jpg" alt="Зображення про контакт 2" class="contact-illustration"></a>
 </div>
 <div class="contact-info">
@@ -214,7 +229,11 @@
 </form>
 </div>
 </section>
+       
+
 </main>
+
+
 
 <footer class="main-footer">
 <div class="container">
@@ -229,6 +248,26 @@ https://www.instagram.com/dr.anna_shevchuk?igsh=Mjl0Y2d6NGxnNzVt&utm_source=qr" 
 </footer>
 
 <script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mcToggleBtn = document.querySelector('.js-master-class-toggle');
+        const navList = document.querySelector('.js-nav-list');
+        const mcDropdown = document.querySelector('.js-dropdown-menu');
+
+        mcToggleBtn.addEventListener('click', function () {
+            // Переключаем классы: если меню открыто — скрываем его, и наоборот
+            navList.classList.toggle('is-hidden');
+            mcDropdown.classList.toggle('is-active');
+            
+            // Опционально: можно менять стиль самой кнопки при активации режима
+            if (mcDropdown.classList.contains('is-active')) {
+                mcToggleBtn.style.color = '#6a9eff'; // Становится голубой в активном состоянии
+            } else {
+                mcToggleBtn.style.color = '#ffffff'; // Возвращается к белому
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
