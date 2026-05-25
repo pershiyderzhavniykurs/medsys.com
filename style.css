@@ -240,6 +240,251 @@
     /* Стиль по умолчанию */
   }
 
+  /* --- ИНТЕРАКТИВНАЯ НАВИГАЦИЯ МАСТЕР-КЛАССА --- */
+
+/* Контейнер навигации делаем flex, чтобы элементы плавно выстраивались в ряд */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    visibility: visible;
+    max-width: 1000px; /* Примерная максимальная ширина вашего меню */
+    overflow: hidden;
+}
+
+/* Класс-триггер: скрывает основные пункты меню */
+.nav-list.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    max-width: 0;
+    gap: 0;
+    margin: 0;
+}
+
+.nav-list.is-hidden li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --- СТИЛІ ДЛЯ СЕКЦІЇ МАЙСТЕР-КЛАС (ЗГІДНО З ЕСКІЗОМ) --- */
+
+/* Загальний контейнер для майстер-класу, що об'єднує елементи */
+.master-class-wrapper {
+    grid-column: 1 / -1; /* Розтягує блок на всю ширину сітки */
+    background: linear-gradient(135deg, rgba(10, 10, 32, 0.6), rgba(20, 20, 50, 0.4));
+    border: 2px solid rgba(106, 158, 255, 0.3); /* Блакитна рамка навколо всього МК */
+    border-radius: 12px; /* Сучасне закруглення для блоку */
+    padding: 30px;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: 0 0 25px rgba(106, 158, 255, 0.05);
+    backdrop-filter: blur(10px); /* Ефект матового скла */
+}
+
+/* Головний заголовок всередині рамки "Майстер-клас" */
+.master-class-main-title {
+    font-size: 22px;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: left;
+    border-left: 4px solid #6a9eff; /* Яскрава лінія ліворуч від заголовка */
+    padding-left: 12px;
+}
+
+/* Внутрішня сітка для двох карток тексту */
+.master-class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Загальні базові стилі для обох кнопок */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+/* 1. Головна кнопка "Доєднатись" (Яскрава, залита кольором з неоновим свіченням) */
+.btn-primary {
+    background: linear-gradient(90deg, #6a9eff, #4a7fd6);
+    color: #0a0a20; /* Темний текст на світлому фоні */
+    box-shadow: 0 4px 15px rgba(106, 158, 255, 0.3);
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(106, 158, 255, 0.6);
+    background: linear-gradient(90deg, #7babff, #5b8ee6);
+}
+
+/* 2. Друрядна кнопка "Детальна інформація" (Контурна, більш стримана) */
+.btn-secondary {
+    background-color: transparent;
+    color: #6a9eff;
+    border: 2px solid rgba(106, 158, 255, 0.5);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    color: #ffffff;
+    border-color: #6a9eff;
+    background-color: rgba(106, 158, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(106, 158, 255, 0.15);
+}
+
+/* Анімація натискання (для обох кнопок) */
+.btn:active {
+    transform: translateY(1px);
+}
+.btn-primary, .btn-secondary {
+    position: relative;
+}
+
+/* Модифікація карток програми спеціально для Майстер-класу */
+.program-item.master-class-item {
+    background-color: rgba(15, 15, 35, 0.8);
+    border: 1px solid rgba(106, 158, 255, 0.15);
+    border-top: 3px solid #6a9eff; /* Посилена лінія згори */
+    border-radius: 6px;
+    position: relative;
+    padding-top: 40px; /* Місце для бейджа */
+    transition: all 0.3s ease;
+}
+
+/* Ефект наведення на картку майстер-класу */
+.program-item.master-class-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(106, 158, 255, 0.6);
+    box-shadow: 0 0 20px rgba(106, 158, 255, 0.2);
+}
+
+/* Стильний бейдж "МК" замість звичайного тексту */
+.mc-badge {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    background: linear-gradient(90deg, #6a9eff, #4a7fd6);
+    color: #0a0a20;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(106, 158, 255, 0.4);
+}
+
+/* Для уніфікації підписів Теорія */
+.program-type {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+/* --- СТИЛІ ДЛЯ КНОПОК У МАЙСТЕР-КЛАСІ --- */
+
+/* Контейнер для кнопок: вирівнює їх по центру та додає відступ зверху */
+.mc-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+    flex-wrap: wrap; /* Щоб кнопки красиво переносилися на мобільних пристроях */
+}
+
+
+
+
+/* Контейнер для кнопки и выпадающих ссылок */
+.master-class-nav-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Стили главной кнопки МАЙСТЕР-КЛАС (Большие белые буквы) */
+.nav-master-class-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff; /* Белый цвет */
+    font-size: 14px; /* Настройте размер под ваш шрифт */
+    font-weight: 800; /* Жирный */
+    text-transform: uppercase; /* Все буквы большие */
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-master-class-btn:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Скрытое по умолчанию подменю (Информация и Оферта) */
+.mc-dropdown-menu {
+    display: flex;
+    gap: 15px;
+    max-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Класс-триггер: показывает кнопки Информация и Оферта */
+.mc-dropdown-menu.is-active {
+    max-width: 300px; /* Достаточная ширина для двух кнопок */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Стили ссылок "Інформація" и "Оферта" */
+.mc-dropdown-link {
+    color: #6a9eff; /* Фирменный голубой цвет */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border: 1px solid rgba(106, 158, 255, 0.3);
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    background-color: rgba(106, 158, 255, 0.05);
+}
+
+.mc-dropdown-link:hover {
+    color: #ffffff;
+    border-color: #6a9eff;
+    background-color: rgba(106, 158, 255, 0.2);
+    box-shadow: 0 0 12px rgba(106, 158, 255, 0.3);
+}
+
   
   /* Ефект затемнення по краях та світіння по центру */
   .hero::before {
